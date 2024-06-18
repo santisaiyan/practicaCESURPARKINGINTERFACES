@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.practicafrancisco.TablacesurController">
+   <center>
+      <VBox alignment="CENTER" prefHeight="457.0" prefWidth="587.0" spacing="20.0" style="-fx-background-color: #002858;">
+          <padding>
+              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+          </padding>
+         <children>
+            <TableView fx:id="tablaid" prefHeight="418.0" prefWidth="599.0">
+              <columns>
+                <TableColumn fx:id="columnamatricula" prefWidth="75.0" text="Matricula" />
+                <TableColumn fx:id="columnamodelo" prefWidth="75.0" text="Modelo" />
+                  <TableColumn fx:id="columnaentrega" prefWidth="75.20001220703125" text="Fecha de entrga" />
+                  <TableColumn fx:id="columnasalida" prefWidth="75.19998168945312" text="Fecha de salida" />
+                  <TableColumn fx:id="columnacliente" prefWidth="75.0" text="Cliente" />
+                  <TableColumn fx:id="columnatarifa" prefWidth="75.0" text="Tarifa" />
+                  <TableColumn fx:id="columnacoste" prefWidth="75.0" text="Coste" />
+              </columns>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #002858;" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="19.0" prefWidth="130.0" text="Nueva entrada" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <GridPane minHeight="300.0" minWidth="200.0" prefHeight="300.0" prefWidth="200.0" style="-fx-background-color: #002858;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="238.79999389648438" minHeight="0.0" prefHeight="35.399993896484375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="304.8" minHeight="10.0" prefHeight="29.000024414062494" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="342.6000427246094" minHeight="10.0" prefHeight="36.000019836425764" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="342.6000427246094" minHeight="10.0" prefHeight="69.59998168945314" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="342.6000427246094" minHeight="10.0" prefHeight="41.199951171875" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="342.6000427246094" minHeight="10.0" prefHeight="47.000024414062494" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="342.6000427246094" minHeight="10.0" prefHeight="53.39997558593751" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Matricula" textFill="WHITE" />
+                  <Label text="Modelo" textFill="WHITE" GridPane.rowIndex="1" />
+                  <Label text="Cliente" textFill="WHITE" GridPane.rowIndex="2" />
+                  <Label text="Tarifa" textFill="WHITE" GridPane.rowIndex="3" />
+                  <Label text="Entrada" textFill="WHITE" GridPane.rowIndex="4" />
+                  <Label text="Salida" textFill="WHITE" GridPane.rowIndex="5" />
+                  <Label text="Coste" textFill="WHITE" GridPane.rowIndex="6" />
+                  <TextField fx:id="matricula" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="cliente" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <RadioButton fx:id="botonstandard" mnemonicParsing="false" selected="true" text="Standard" textFill="WHITE">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tarifa" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="botonoferta" mnemonicParsing="false" text="Oferta" textFill="WHITE" toggleGroup="$tarifa" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="botonlargaduracion" mnemonicParsing="false" text="Larga duracion" textFill="WHITE" toggleGroup="$tarifa" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <Label fx:id="coste" text="XXX$" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <DatePicker fx:id="entrada" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <DatePicker fx:id="salida" prefHeight="29.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <ComboBox fx:id="modelo" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <Button fx:id="botonañadirtabla" mnemonicParsing="false" onAction="#añadir" prefHeight="26.0" prefWidth="110.0" text="Añadir a la tabla">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="actualizar" mnemonicParsing="false" onAction="#actualizar" text="Actualizar" />
+            <Button fx:id="VerReporte" mnemonicParsing="false" onAction="#enseñar" text="Enseñar reporte" />
+            <Button fx:id="DescargarReprote" mnemonicParsing="false" onAction="#descargar" text="Descargar reporte" />
+            <Button fx:id="botonsalir" mnemonicParsing="false" onAction="#salir" text="Salir de la aplicacion" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <bottom>
+      <Label fx:id="textocambia" prefHeight="18.0" prefWidth="202.0" text="Aplicacion creado por jorge baratech" textFill="#699bff" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
+   <top>
+      <FlowPane alignment="CENTER" prefHeight="128.0" prefWidth="798.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="120.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@cesurlogo.png" />
+               </image>
+            </ImageView>
+            <Label contentDisplay="CENTER" text="PARKING CESUR" textFill="#002858">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+               <FlowPane.margin>
+                  <Insets left="10.0" />
+               </FlowPane.margin>
+            </Label>
+         </children>
+      </FlowPane>
+   </top>
+</BorderPane>
